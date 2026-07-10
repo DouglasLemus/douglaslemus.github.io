@@ -526,6 +526,93 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 12px;
 }
 
+/* Remembra Section */
+.remembr-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.remembr-badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: #93c5fd;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.carousel-container {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 40px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    background: #111;
+}
+
+.carousel-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 24px;
+    background: black;
+    border-radius: 0 0 16px 16px;
+    z-index: 10;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.app-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    background: white;
+}
+
 /* Contact Section */
 .contact-card {
     display: grid;
@@ -642,7 +729,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .hero-container, .aura-container, .contact-card {
+    .hero-container, .aura-container, .remembr-container, .contact-card {
         grid-template-columns: 1fr;
     }
     
@@ -650,7 +737,7 @@ footer {
         font-size: 3rem;
     }
     
-    .hero-visual, .aura-visual {
+    .hero-visual, .aura-visual, .remembra-visual {
         order: -1;
         margin-bottom: 40px;
     }

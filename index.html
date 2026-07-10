@@ -25,6 +25,7 @@
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#aura">Aura App</a>
+                <a href="#remembra">Remembra</a>
                 <a href="#contacto" class="btn btn-outline">Contacto</a>
             </nav>
         </div>
@@ -126,6 +127,47 @@
             </div>
         </section>
 
+        <section id="remembra" class="remembra-section section">
+            <div class="container remembr-container">
+                <div class="remembra-content">
+                    <div class="badge remembr-badge">Nuevo Lanzamiento</div>
+                    <h2 class="section-title">Captura tus momentos con <span class="text-gradient">Remembra</span></h2>
+                    <p class="section-subtitle text-left">Tu diario digital inteligente, diseñado por LM Innovations.</p>
+                    <p class="aura-description">Remembra es el espacio seguro y personal para guardar tus recuerdos más preciados. Escribe, graba notas de voz y adjunta fotos con una interfaz moderna y hermosa que te inspirará a documentar tu día a día.</p>
+                    
+                    <div class="coming-soon">
+                        <div class="play-store-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <h4>Próximamente en Tiendas</h4>
+                            <p>Únete a la lista de espera para ser de los primeros en probarla.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="remembra-visual">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="remembraCarousel">
+                            <div class="carousel-slide">
+                                <img src="assets/remembra_home.png" alt="Pantalla de Inicio de Remembra" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/remembra_create.png" alt="Crear nueva memoria en Remembra" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/remembra_calendar.png" alt="Vista de calendario en Remembra" class="app-screenshot">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="goToSlide(0)"></span>
+                            <span class="indicator" onclick="goToSlide(1)"></span>
+                            <span class="indicator" onclick="goToSlide(2)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contacto" class="contact section">
             <div class="container">
                 <div class="glass-card contact-card">
@@ -177,5 +219,34 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const track = document.getElementById('remembraCarousel');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function goToSlide(index) {
+            const slideWidth = track.clientWidth;
+            track.scrollTo({
+                left: index * slideWidth,
+                behavior: 'smooth'
+            });
+            updateIndicators(index);
+        }
+
+        track.addEventListener('scroll', () => {
+            const index = Math.round(track.scrollLeft / track.clientWidth);
+            updateIndicators(index);
+        });
+
+        function updateIndicators(index) {
+            indicators.forEach((ind, i) => {
+                if (i === index) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
