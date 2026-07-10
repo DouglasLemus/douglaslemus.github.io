@@ -96,13 +96,22 @@
         <section id="aura" class="aura-section section">
             <div class="container aura-container">
                 <div class="aura-visual">
-                    <div class="glass-card phone-mockup">
-                        <div class="phone-screen">
-                            <div class="screen-slideshow">
-                                <img src="screenshot_1_home.png" alt="Aura Home Screen" />
-                                <img src="screenshot_2_reports.png" alt="Aura Reports Screen" />
-                                <img src="screenshot_3_budget.png" alt="Aura Budget Screen" />
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="auraCarousel">
+                            <div class="carousel-slide">
+                                <img src="screenshot_1_home.png" alt="Aura Home Screen" class="app-screenshot">
                             </div>
+                            <div class="carousel-slide">
+                                <img src="screenshot_2_reports.png" alt="Aura Reports Screen" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="screenshot_3_budget.png" alt="Aura Budget Screen" class="app-screenshot">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators" id="auraIndicators">
+                            <span class="indicator active" onclick="goToSlide('auraCarousel', 0)"></span>
+                            <span class="indicator" onclick="goToSlide('auraCarousel', 1)"></span>
+                            <span class="indicator" onclick="goToSlide('auraCarousel', 2)"></span>
                         </div>
                     </div>
                 </div>
@@ -158,10 +167,10 @@
                                 <img src="assets/remembra_calendar.png" alt="Vista de calendario en Remembra" class="app-screenshot">
                             </div>
                         </div>
-                        <div class="carousel-indicators">
-                            <span class="indicator active" onclick="goToSlide(0)"></span>
-                            <span class="indicator" onclick="goToSlide(1)"></span>
-                            <span class="indicator" onclick="goToSlide(2)"></span>
+                        <div class="carousel-indicators" id="remembraIndicators">
+                            <span class="indicator active" onclick="goToSlide('remembraCarousel', 0)"></span>
+                            <span class="indicator" onclick="goToSlide('remembraCarousel', 1)"></span>
+                            <span class="indicator" onclick="goToSlide('remembraCarousel', 2)"></span>
                         </div>
                     </div>
                 </div>
@@ -221,32 +230,37 @@
     </footer>
 
     <script>
-        const track = document.getElementById('remembraCarousel');
-        const indicators = document.querySelectorAll('.indicator');
-
-        function goToSlide(index) {
+        function goToSlide(trackId, index) {
+            const track = document.getElementById(trackId);
+            if (!track) return;
             const slideWidth = track.clientWidth;
             track.scrollTo({
                 left: index * slideWidth,
                 behavior: 'smooth'
             });
-            updateIndicators(index);
         }
 
-        track.addEventListener('scroll', () => {
-            const index = Math.round(track.scrollLeft / track.clientWidth);
-            updateIndicators(index);
-        });
+        function setupCarousel(trackId, indicatorsContainerId) {
+            const track = document.getElementById(trackId);
+            const indicatorsContainer = document.getElementById(indicatorsContainerId);
+            if (!track || !indicatorsContainer) return;
 
-        function updateIndicators(index) {
-            indicators.forEach((ind, i) => {
-                if (i === index) {
-                    ind.classList.add('active');
-                } else {
-                    ind.classList.remove('active');
-                }
+            const indicators = indicatorsContainer.querySelectorAll('.indicator');
+
+            track.addEventListener('scroll', () => {
+                const index = Math.round(track.scrollLeft / track.clientWidth);
+                indicators.forEach((ind, i) => {
+                    if (i === index) {
+                        ind.classList.add('active');
+                    } else {
+                        ind.classList.remove('active');
+                    }
+                });
             });
         }
+
+        setupCarousel('remembraCarousel', 'remembraIndicators');
+        setupCarousel('auraCarousel', 'auraIndicators');
     </script>
 </body>
 </html>
