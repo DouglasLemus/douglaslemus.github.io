@@ -611,7 +611,7 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     aspect-ratio: 16 / 9;
     border-radius: 0;
-    background: #000;
+    background: transparent;
     box-shadow: none;
 }
 
@@ -620,7 +620,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .desktop-carousel .app-screenshot {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Darker indicators for light desktop screenshots */
