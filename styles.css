@@ -377,6 +377,13 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+@media (min-width: 993px) {
+    .tablero-container {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 60px;
+    }
+}
+
 .aura-badge {
     background: rgba(168, 85, 247, 0.1);
     color: #d8b4fe;
@@ -570,10 +577,29 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
+    background: #f8f9fa; /* Light background for screenshots */
 }
 
 .carousel-container.desktop-carousel::before {
     display: none;
+}
+
+.desktop-carousel .app-screenshot {
+    object-fit: contain;
+}
+
+/* Darker indicators for light desktop screenshots */
+.desktop-carousel .indicator {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.desktop-carousel .indicator.active {
+    background: var(--accent-primary);
+    transform: scale(1.2);
 }
 
 .carousel-track {
