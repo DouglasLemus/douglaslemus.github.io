@@ -26,6 +26,7 @@
                 <a href="#servicios">Servicios</a>
                 <a href="#aura">Aura App</a>
                 <a href="#remembra">Remembra</a>
+                <a href="#tablero">Gestor de Tareas</a>
                 <a href="#contacto" class="btn btn-outline">Contacto</a>
             </nav>
         </div>
@@ -225,6 +226,49 @@
             </div>
         </section>
 
+        <section id="tablero" class="aura-section section">
+            <div class="container aura-container">
+                <div class="aura-visual">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="tableroCarousel">
+                            <div class="carousel-slide">
+                                <img src="assets/tablero/tablero_1.png" alt="Gestor de Tareas 1" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/tablero/tablero_2.png" alt="Gestor de Tareas 2" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/tablero/tablero_3.png" alt="Gestor de Tareas 3" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/tablero/tablero_4.png" alt="Gestor de Tareas 4" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/tablero/tablero_5.png" alt="Gestor de Tareas 5" class="app-screenshot">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/tablero/tablero_6.png" alt="Gestor de Tareas 6" class="app-screenshot">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators" id="tableroIndicators">
+                            <span class="indicator active" onclick="goToSlide('tableroCarousel', 0)"></span>
+                            <span class="indicator" onclick="goToSlide('tableroCarousel', 1)"></span>
+                            <span class="indicator" onclick="goToSlide('tableroCarousel', 2)"></span>
+                            <span class="indicator" onclick="goToSlide('tableroCarousel', 3)"></span>
+                            <span class="indicator" onclick="goToSlide('tableroCarousel', 4)"></span>
+                            <span class="indicator" onclick="goToSlide('tableroCarousel', 5)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="aura-content">
+                    <div class="badge aura-badge">Próximamente</div>
+                    <h2 class="section-title">Controla tus proyectos con nuestro <span class="text-gradient">Gestor de Tareas</span></h2>
+                    <p class="section-subtitle text-left">Organización ágil y colaboración en equipo en un solo lugar.</p>
+                    <p class="aura-description">Hemos desarrollado una plataforma integral para administrar flujos de trabajo eficientemente. Diseñada bajo principios de metodologías ágiles, te permite visualizar el estado de cada actividad mediante tableros interactivos, asignar responsables, gestionar incidencias y hacer seguimiento del progreso en tiempo real. Organiza tus proyectos y asegura que tu equipo siempre cumpla sus objetivos con total claridad.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="contacto" class="contact section">
             <div class="container">
                 <div class="glass-card contact-card">
@@ -309,6 +353,7 @@
 
         setupCarousel('remembraCarousel', 'remembraIndicators');
         setupCarousel('auraCarousel', 'auraIndicators');
+        setupCarousel('tableroCarousel', 'tableroIndicators');
     </script>
 </body>
 </html>
